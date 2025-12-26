@@ -1,58 +1,95 @@
-vi<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Web Designer Shweta</title>
-
+  <title>Web Designer Shweta - Portfolio</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fce4ec;
-      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fce4ec, #ffe0b2);
+      color: #333;
+      transition: background 0.3s, color 0.3s;
     }
+
+    a { text-decoration: none; }
 
     .container {
-      background: white;
       width: 90%;
-      max-width: 500px;
-      margin: 40px auto;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
     }
 
-    h1 {
+    section {
+      margin-bottom: 60px;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 25px;
       color: #e91e63;
     }
 
-    h3 {
-      color: #555;
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
     }
 
-    img {
-      width: 180px;
+    .hero h1 {
+      font-size: 36px;
+      color: #e91e63;
+      margin-bottom: 15px;
+    }
+
+    .hero h3 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .hero img {
+      width: 200px;
       border-radius: 50%;
       border: 4px solid #ff4081;
-      margin: 20px 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    p {
+    .hero img:hover {
+      transform: rotate(5deg) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Buttons */
+    .btn, .whatsapp {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 30px;
       font-size: 16px;
-      color: #333;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      animation: pulse 2s infinite;
     }
 
     .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 25px;
-      background: #ff4081;
+      background: linear-gradient(45deg, #ff4081, #e91e63);
       color: white;
-      text-decoration: none;
-      border-radius: 25px;
-      font-size: 16px;
+      margin-top: 15px;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      background: linear-gradient(45deg, #e91e63, #ff4081);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
 
     .whatsapp {
@@ -61,49 +98,213 @@ vi<!DOCTYPE html>
       right: 20px;
       background: #25D366;
       color: white;
-      padding: 14px 18px;
-      border-radius: 50px;
-      text-decoration: none;
       font-size: 16px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      font-weight: 600;
+      z-index: 1000;
     }
+
+    .whatsapp:hover {
+      transform: scale(1.2);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Sections Style */
+    .about, .skills, .projects, .contact {
+      background: white;
+      border-radius: 20px;
+      padding: 30px 20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+      margin: 20px 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about:hover, .skills:hover, .projects:hover, .contact:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.3);
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .skills-list span {
+      background: #ff4081;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .projects-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .project-item {
+      width: 250px;
+      background: #ffe0b2;
+      padding: 20px;
+      border-radius: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    }
+
+    .project-item h4 {
+      margin-bottom: 10px;
+      color: #e91e63;
+    }
+
+    /* Dark Mode */
+    body.dark {
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      color: #eee;
+    }
+
+    body.dark .container,
+    body.dark .about,
+    body.dark .skills,
+    body.dark .projects,
+    body.dark .contact {
+      background: #2c3e50;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    }
+
+    body.dark .btn {
+      background: linear-gradient(45deg, #ff4081, #ff79a9);
+    }
+
+    body.dark .btn:hover {
+      background: linear-gradient(45deg, #ff79a9, #ff4081);
+    }
+
+    body.dark .skills-list span {
+      background: #ff4081;
+    }
+
+    body.dark .project-item {
+      background: #34495e;
+    }
+
+    body.dark .project-item h4 {
+      color: #ff4081;
+    }
+
+    body.dark .hero h1 {
+      color: #ff79a9;
+    }
+
+    body.dark .hero img {
+      border: 4px solid #ff79a9;
+    }
+
+    /* Toggle Button */
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      border-radius: 20px;
+      background: #ff4081;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      z-index: 1001;
+    }
+
+    .toggle-btn:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 600px) {
+      .projects-list {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
   </style>
 </head>
 
 <body>
-  <div class="container">
-  <h1>Web Designer Shweta</h1>
 
-  <img src="IMG-20231231-WA0011.jpg" alt="Shweta Photo">
+  <!-- Dark Mode Toggle -->
+  <div class="toggle-btn" onclick="document.body.classList.toggle('dark')">Toggle Dark Mode</div>
 
-  <h3>Future Web Developer</h3>
-
-  <p>
-    Main website design seekh rahi hoon aur  
-    apne clients ke liye professional websites banana chahti hoon.
-  </p>
-
-  <a class="btn" href="https://wa.me/916392707597" target="_blank">Contact Me</a>
-  </div>
-
-  <div class="container">
+  <!-- Hero Section -->
+  <div class="container hero">
     <h1>Web Designer Shweta</h1>
-
-    <img src="IMG-20231231-WA0011.jpg" alt="Shweta Photo">
-
     <h3>Future Web Developer</h3>
-
-    <p>
-      Main website design seekh rahi hoon aur
-      apne clients ke liye professional websites banana chahti hoon.
-    </p>
-
-    <a class="btn" href="#">Contact Me</a>
+    <img src="IMG-20231231-WA0011.jpg" alt="Shweta Photo">
+    <br>
+    <a class="btn" href="https://wa.me/916392707597" target="_blank">Contact Me</a>
   </div>
 
-  <a class="whatsapp" href="https://wa.me/916392707597" target="_blank">
-    WhatsApp Me
-  </a>
+  <!-- About Me Section -->
+  <section class="container about">
+    <h2>About Me</h2>
+    <p>
+      Main web design aur development seekh rahi hoon.  
+      Client ke liye professional aur modern websites create karna mera passion hai.  
+      HTML, CSS, JavaScript aur Python me kaam kar sakti hoon.
+    </p>
+  </section>
 
-</body> 
+  <!-- Skills Section -->
+  <section class="container skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+      <span>Python</span>
+      <span>Web Design</span>
+      <span>Responsive Design</span>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="container projects">
+    <h2>Projects</h2>
+    <div class="projects-list">
+      <div class="project-item">
+        <h4>Portfolio Website</h4>
+        <p>Professional client-ready portfolio website.</p>
+      </div>
+      <div class="project-item">
+        <h4>Landing Page</h4>
+        <p>Modern landing page with responsive design.</p>
+      </div>
+      <div class="project-item">
+        <h4>Blog Website</h4>
+        <p>Simple HTML & CSS blog website for beginners.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="container contact">
+    <h2>Contact Me</h2>
+    <p>Click the button below to chat with me on WhatsApp:</p>
+    <a class="btn" href="https://wa.me/916392707597" target="_blank">Contact Me</a>
+    <a class="whatsapp" href="https://wa.me/916392707597" target="_blank">💬 WhatsApp Me</a>
+  </section>
+
+</body>
 </html>
